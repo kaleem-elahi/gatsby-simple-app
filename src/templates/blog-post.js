@@ -1,10 +1,14 @@
 import React from 'react';
 import Link from 'gatsby-link'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
 export default function Template({data}) {
   const post = data.markdownRemark;
 
   return(
+      <Layout>
+    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <div>
     <Link to="/blog">Go Back</Link>
     <hr/>
@@ -12,6 +16,7 @@ export default function Template({data}) {
     <h4>Posted by {post.frontmatter.author} on {post.frontmatter.date}</h4>
     <div dangerouslySetInnerHTML={{ __html: post.html }} />
     </div>
+    </Layout>
   )
 }
 
